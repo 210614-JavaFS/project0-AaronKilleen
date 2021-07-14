@@ -40,13 +40,13 @@ INSERT INTO accounts (account_id, balance)
 	VALUES (123456789, 32543.21);
 
 INSERT INTO users (user_name, passwords, first_name, last_name, email, phone, ssn, street_address, city, state, zip, account_id, reg_approved, joint_approved, is_employee, is_admin) 
-	VALUES ('JohnCustomer', 'password', 'john', 'customer', 'john@customer.com', 1112223333, 111223333, '100 John Street', 'Customer City', 'IN', 11111, 123456789, true, true, false, false);
+	VALUES ('JohnQPublic', 'password', 'John', 'Customer', 'john@customer.com', 1112223333, 111223333, '100 John Street', 'Public City', 'IN', 11111, 123456789, true, true, false, false);
 
 INSERT INTO accounts (account_id, balance)
 	VALUES (987654321, 11234.56);
 
 INSERT INTO users (user_name, passwords, first_name, last_name, email, phone, ssn, street_address, city, state, zip, account_id, reg_approved, joint_approved, is_employee, is_admin) 
-	VALUES ('JimCustomer', 'password', 'jim', 'customer', 'jim@customer.com', 9998887777, 999887777, '100 Jim Street', 'Customer City', 'IN', 22222, 987654321, true, true, false, false);
+	VALUES ('JimCustomer', 'password', 'Jim', 'Customer', 'jim@customer.com', 9998887777, 999887777, '100 Jim Street', 'Customer City', 'IN', 22222, 987654321, true, true, false, false);
 
 INSERT INTO accounts (account_id, balance)
 	VALUES (0, 0.00);
