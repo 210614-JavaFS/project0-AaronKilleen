@@ -2,9 +2,7 @@ package com.revature.project0.controllers;
 
 import java.util.InputMismatchException;
 
-//import java.sql.Connection;
-//import java.sql.SQLException;
-//import java.sql.Statement;
+
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -15,7 +13,7 @@ import com.revature.project0.models.Account;
 import com.revature.project0.models.User;
 import com.revature.project0.services.AccountService;
 import com.revature.project0.services.UserService;
-//import com.revature.project0.utils.ConnectionUtil;
+
 
 
 public class UserController {
@@ -812,7 +810,7 @@ public class UserController {
 	// get Account ID
 	validResponse = false;
 	gotLine = false;
-	System.out.println("enter Account ID to transfer to number or 0 to cancel");
+	System.out.println("enter 9 digit Account ID to transfer to number or 0 to cancel");
 	while((!validResponse)&&(!hasCancelled))
 	{
 	try
@@ -924,7 +922,7 @@ public class UserController {
 		// get Account ID
 		validResponse = false;
 		gotLine = false;
-		System.out.println("enter Account ID for deposit or 0 to cancel");
+		System.out.println("enter 9 digit Account ID for deposit or 0 to cancel");
 		while((!validResponse)&&(!hasCancelled))
 		{
 		try
@@ -1040,7 +1038,7 @@ public class UserController {
 		// get Account ID
 		validResponse = false;
 		gotLine = false;
-		System.out.println("enter Account ID to withdraw from to number or 0 to cancel");
+		System.out.println("enter 9 digit Account ID to withdraw from to number or 0 to cancel");
 		while((!validResponse)&&(!hasCancelled))
 		{
 		try
@@ -1127,7 +1125,7 @@ public class UserController {
 		// get Account ID
 		validResponse = false;
 		gotLine = false;
-		System.out.println("enter Account ID to transfer to from or 0 to cancel");
+		System.out.println("enter 9 digit Account ID to transfer to from or 0 to cancel");
 		while((!validResponse)&&(!hasCancelled))
 		{
 		try
@@ -1231,7 +1229,7 @@ public class UserController {
 		// get Account ID
 		validResponse = false;
 		gotLine = false;
-		System.out.println("enter Account ID number to transfer to or 0 to cancel");
+		System.out.println("enter 9 digit Account ID number to transfer to or 0 to cancel");
 		while((!validResponse)&&(!hasCancelled))
 		{
 		try
@@ -1301,7 +1299,7 @@ public class UserController {
 				boolean hasCancelled = false;
 				int numericResponse = 1;
 				String response = "initial";
-				System.out.println("enter Account ID number to delete to or 0 to cancel");
+				System.out.println("enter 9 digit Account ID number to delete to or 0 to cancel");
 				while((!validResponse)&&(!hasCancelled))
 				{
 				try
@@ -1882,7 +1880,7 @@ public class UserController {
 		else if((response.equals("2"))){
 			validResponse = false;
 			gotLine = false;
-			System.out.println("Please enter your account ID");
+			System.out.println("Please enter the 9 digit account ID of the joint account.");
 			while((!validResponse)&&(!hasCancelled))
 			{
 			try
