@@ -21,9 +21,13 @@ public class AccountService {
 		public boolean addAccount(Account account) {
 			return accountDao.addAccount(account);
 		}
-		public boolean editAccountBalance(int accountID, double ammount)
-		{
+		public boolean editAccountBalance(int accountID, double ammount){
 			return accountDao.editAccountBalance(accountID, ammount);
 		}
-
+		public boolean transfer(int senderID, int receiverID, double amount){
+			return accountDao.transfer(senderID, receiverID, amount);
+		}
+		public boolean deleteAccount(int accountID){
+		return accountDao.deleteAccount(accountID);	
+		}
 }

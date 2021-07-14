@@ -9,5 +9,6 @@ public interface UserDAO {
 	public List<User> findAll();
 	public User findUser(String userName);
 	public boolean addUser(User user);
-	public boolean editUserInformation(String columnName, String type, String text, long number, boolean bool);
+	public boolean editUserInformation(String columnName, String value, String userName);
+	public boolean deleteUser(int accountID);
 }

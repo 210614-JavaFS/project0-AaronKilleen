@@ -9,5 +9,7 @@ public interface AccountDAO {
 	public List<Account> findAll();
 	public Account findAccount(int accountID);
 	public boolean addAccount(Account account);
-	public boolean editAccountBalance(int accountID, double ammount);
+	public boolean editAccountBalance(int accountID, double amount);
+	public boolean transfer(int senderID, int receiverID, double ammunt);
+	public boolean deleteAccount(int accountID);
 }

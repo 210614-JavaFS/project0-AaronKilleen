@@ -1,5 +1,6 @@
 package com.revature.project0.repos;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -12,14 +13,14 @@ import com.revature.project0.models.User;
 import com.revature.project0.utils.ConnectionUtil;
 
 public class UserDAOImpl implements UserDAO {
-	
+	private static Logger log = LoggerFactory.getLogger(UserDAOImpl.class);
 
 	@Override
 	public List<User> findAll() {
 		List<User> list = new ArrayList<>();
 		try(Connection conn = ConnectionUtil.getConnection()){
 			String sql = "SELECT * FROM users;";
-			
+			log.debug(sql);
 			Statement statement = conn.createStatement();
 			ResultSet result = statement.executeQuery(sql);
 			
@@ -60,7 +61,7 @@ public class UserDAOImpl implements UserDAO {
 		User user = new User();
 		try(Connection conn = ConnectionUtil.getConnection()){
 			String sql = "SELECT * FROM users WHERE user_name = '" + userName + "';";
-			
+			log.debug(sql);
 			Statement statement = conn.createStatement();
 			ResultSet result = statement.executeQuery(sql);
 				
@@ -94,12 +95,11 @@ public class UserDAOImpl implements UserDAO {
 	
 	}
 
- public boolean editUserInformation(String columnName, String type, String text, long number, boolean bool) {
-		//User user = new User();
+ public boolean editUserInformation(String columnName, String value, String userName) {
 		try(Connection conn = ConnectionUtil.getConnection()){
-			String sql = " ";
+			String sql = "UPDATE users SET " + columnName + " = " + value + " WHERE user_name = '" + userName + "';";
+			log.debug(sql);
 			Statement statement = conn.createStatement();
-			
 			statement.execute(sql);
 			
 			ConnectionUtil.closeConnection(conn);			
@@ -119,13 +119,13 @@ public class UserDAOImpl implements UserDAO {
 		try(Connection conn = ConnectionUtil.getConnection()){
 			Statement statement = conn.createStatement();
 			String sql = "INSERT INTO users (user_name, passwords, first_name, last_name, email, phone, ssn, street_address, city, "
-			+ "state, zip, account_id, reg_approved, joint_approved, is_employee, is_admin)\n"
+			+ "state, zip, account_id, reg_approved, joint_approved, is_employee, is_admin) "
 			+ "VALUES ('" + user.getUserName() + "', '" + user.getPassword() + "', '" + user.getFirstName() + "', '" + user.getLastName() + "', '" 
 			+ user.getEmail() + "', " + user.getPhone() + ", " + user.getSSN() + ", '" + user.getStreetAddress() + "', '"+ user.getCity() + "', '"
 			+ user.getState() + "', " + user.getZip() + ", " + user.getAccountID() + ", " + user.getRegApproved() + ", " + user.getJointApproved() + ", "  
 			+ user.getIsEmployee() + ", " + user.getIsAdmin() + ");";
 			
-
+			log.debug(sql);
 			statement.execute(sql);
 			ConnectionUtil.closeConnection(conn);
 			return true;
@@ -134,6 +134,22 @@ public class UserDAOImpl implements UserDAO {
 		}
 		
 		
+		return false;
+	}
+	
+	public boolean deleteUser(int accountID)
+	{
+		try(Connection conn = ConnectionUtil.getConnection()){
+			String sql = "DELETE FROM users WHERE account_id = " + accountID + ";";
+			log.debug(sql);
+			Statement statement = conn.createStatement();
+			statement.execute(sql);
+			
+			ConnectionUtil.closeConnection(conn);			
+			return true;
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 

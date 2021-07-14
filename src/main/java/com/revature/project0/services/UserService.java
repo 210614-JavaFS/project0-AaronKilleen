@@ -22,8 +22,14 @@ public class UserService {
 	public boolean addUser(User user) {
 		return userDao.addUser(user);
 	}
-	public boolean editUserInformation(String columnName, String type, String text, long number, boolean bool)
+	 public boolean editUserInformation(String columnName, String value, String userName)
 	{
-		return userDao.editUserInformation(columnName, type, text, number, bool);
+		userDao.editUserInformation(columnName,value, userName);
+		return true;
 	}
+	 public boolean deleteUser(int accountID)
+	 {
+		 return userDao.deleteUser(accountID);
+	 }
+	 
 }
